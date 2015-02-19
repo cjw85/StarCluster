@@ -80,6 +80,9 @@ class CmdCreateVolume(CmdBase):
             "-t", "--tag", dest="tags", action="callback", type="string",
             default={}, callback=self._build_dict,
             help="One or more tags to apply to the new volume (key=value)")
+        parser.add_option("-N", "--subnet-id", dest="subnet_id",
+            action="store", type="string",
+            help=("Launch cluster into a VPC subnet"))
 
     def _load_keypair(self, keypair=None):
         key_location = None
